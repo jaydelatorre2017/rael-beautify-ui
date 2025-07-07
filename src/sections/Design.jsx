@@ -10,8 +10,8 @@ const Design = () => {
       setIsScrolled(scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -29,11 +29,15 @@ const Design = () => {
         </h2>
         <p className="text-white font-light text-md/6">
           Welcome to the official RAEL 2025 Online Registration Form. This form
-          is intended for participants who wish to join the Regional Assembly of
-          Educational Leaders (RAEL). Please ensure all information provided is
-          accurate and complete. Your details will be used for event
-          coordination and updates. We look forward to seeing you at this
-          exciting and empowering event!
+          is intended for participants registering for the Regional Assembly of
+          Educational Leaders (RAEL). Kindly ensure that all information
+          provided is accurate and complete, as it will be used solely for event
+          coordination and official updates. We are excited to have you join
+          this inspiring and empowering event. 
+        </p>
+        <p className="text-white font-light text-md/6">
+          <span className="font-black text-blue-950">Nota bene:{" "}</span> 
+          All collected information shall be treated in accordance with the Data Privacy Law.
         </p>
         {/* Chevron above paragraph when not scrolled */}
         {!isScrolled && (

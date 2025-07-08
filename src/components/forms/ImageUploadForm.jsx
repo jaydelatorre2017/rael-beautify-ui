@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import ImageCropper from '../ImageCropper';
 
 const ImageUploadForm = ({
   orNumber, setOrNumber,
@@ -8,6 +9,74 @@ const ImageUploadForm = ({
   preview, imgPreview,
   handleFileChange, handleUserImageChange
 }) => {
+  const [cropperData, setCropperData] = useState({
+    isOpen: false,
+    src: '',
+    type: '', // 'receipt' or 'user'
+    originalFile: null
+  });
+
+  const handleImageSelect = (e, type) => {
+    e.preventDefault(); // Prevent form submission
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setCropperData({
+          isOpen: true,
+          src: reader.result,
+          type: type,
+          originalFile: file
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+    // Clear the input to allow selecting the same file again
+    e.target.value = '';
+  };
+
+  const handleCropComplete = (croppedImage) => {
+    if (cropperData.type === 'receipt') {
+      // Create a new File object from the cropped blob
+      const croppedFile = new File([croppedImage.blob], cropperData.originalFile.name, {
+        type: 'image/jpeg',
+        lastModified: Date.now(),
+      });
+      
+      // Create a fake event object for the handleFileChange function
+      const fakeEvent = {
+        target: {
+          files: [croppedFile]
+        },
+        preventDefault: () => {},
+        stopPropagation: () => {}
+      };
+      handleFileChange(fakeEvent);
+    } else if (cropperData.type === 'user') {
+      // Create a new File object from the cropped blob
+      const croppedFile = new File([croppedImage.blob], cropperData.originalFile.name, {
+        type: 'image/jpeg',
+        lastModified: Date.now(),
+      });
+      
+      // Create a fake event object for the handleUserImageChange function
+      const fakeEvent = {
+        target: {
+          files: [croppedFile]
+        },
+        preventDefault: () => {},
+        stopPropagation: () => {}
+      };
+      handleUserImageChange(fakeEvent);
+    }
+    
+    setCropperData({ isOpen: false, src: '', type: '', originalFile: null });
+  };
+
+  const handleCropCancel = () => {
+    setCropperData({ isOpen: false, src: '', type: '', originalFile: null });
+  };
+
   return (
     <>
       {/* OR Receipt */}
@@ -77,12 +146,11 @@ const ImageUploadForm = ({
             name="or_receipt"
             type="file"
             accept="image/*"
-            required
-            onChange={handleFileChange}
+            onChange={(e) => handleImageSelect(e, 'receipt')}
             className="hidden"
           />
           <small className="text-xs italic text-gray-200">
-            Click the icon or image to upload your receipt (OR No. must be visible)
+            Click the icon or image to upload your receipt (OR No. must be visible). You can crop the image after selection.
           </small>
         </div>
       </div>
@@ -114,9 +182,12 @@ const ImageUploadForm = ({
             name="participant_image"
             type="file"
             accept="image/*"
-            onChange={handleUserImageChange}
+            onChange={(e) => handleImageSelect(e, 'user')}
             className="hidden"
           />
+          <small className="text-xs italic text-gray-200">
+            Upload your photo. You can crop the image after selection for better framing.
+          </small>
         </div>
       </div>
 
@@ -139,6 +210,14 @@ const ImageUploadForm = ({
           />
         </div>
       </div>
+
+      {/* Image Cropper Modal */}
+      <ImageCropper
+        src={cropperData.src}
+        isOpen={cropperData.isOpen}
+        onCropComplete={handleCropComplete}
+        onCancel={handleCropCancel}
+      />
     </>
   );
 };

@@ -14,7 +14,7 @@ const PersonalInfoForm = ({
   return (
     <>
       {/* Last Name */}
-      <div className="col-span-12">
+      <div className="col-span-12 md:col-span-6">
         <label htmlFor="l_name" className="block text-sm/6 font-bold text-white">
           Last Name:
         </label>
@@ -36,7 +36,7 @@ const PersonalInfoForm = ({
       </div>
 
       {/* First Name */}
-      <div className="col-span-12">
+      <div className="col-span-12 md:col-span-6">
         <label htmlFor="f_name" className="block text-sm/6 font-bold text-white">
           First Name:
         </label>
@@ -58,7 +58,7 @@ const PersonalInfoForm = ({
       </div>
 
       {/* Middle Name */}
-      <div className="col-span-12">
+      <div className="col-span-12 md:col-span-6">
         <label htmlFor="m_name" className="block text-sm/6 font-bold text-white">
           Middle Name:
         </label>
@@ -79,7 +79,7 @@ const PersonalInfoForm = ({
       </div>
 
       {/* Suffix */}
-      <div className="col-span-12">
+      <div className="col-span-12 md:col-span-6">
         <label htmlFor="suffix" className="block text-sm/6 font-bold text-white">
           Suffix:
         </label>
@@ -93,7 +93,8 @@ const PersonalInfoForm = ({
               value={suffix}
               onChange={(e) => setSuffix(e.target.value)}
               maxLength={5}
-              placeholder="Jr."
+              placeholder="Jr. (Optional)"
+              autoComplete='off'
             />
           </div>
         </div>

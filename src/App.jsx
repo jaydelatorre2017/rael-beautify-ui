@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistrationForm from "./pages/RegistrationForm";
-import SuccesfulRegistration from "./pages/SuccesfulRegistration";
-
+import ParticipantIDGeneratorSingle from "./pages/PariticipantId";
+import AlldigitalID from "./pages/AlldigitalID";
 function App() {
 
   
@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RegistrationForm />}></Route>
-          <Route path="/" element={<RegistrationForm />}></Route>
-          <Route path="/succesful-registration/:userId" element={<SuccesfulRegistration />}></Route>
+          <Route path="/id/:userId" element={< ParticipantIDGeneratorSingle/>}></Route>
+          <Route path="/all-id" element={< AlldigitalID/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

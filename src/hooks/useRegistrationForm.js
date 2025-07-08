@@ -175,7 +175,7 @@ export const useRegistrationForm = () => {
 
   const compressImage = async (imageFile) => {
     const options = {
-      maxSizeMB: 0.02,
+      maxSizeMB: 3,
       maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
@@ -299,11 +299,12 @@ export const useRegistrationForm = () => {
         MySwal.close();
         resetForm();
         Swal.fire("Success", `Registered submitted successfully! <br/> <strong>Registered Count<strong/>: ${count}`, "success").then(() => {
-          navigate(`/succesful-registration/${userId}`, {
+          navigate(`/id/${userId}`, {
             state: {
               event: userId,
               when: activeEvent.start_date,
-              where: activeEvent.venue
+              where: activeEvent.venue,
+              count:count
             },
           });
         });

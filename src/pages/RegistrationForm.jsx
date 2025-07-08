@@ -3,11 +3,23 @@ import Design from "../sections/Design";
 
 const RegistrationForm = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat lg:block lg:relative" style={{ backgroundImage: "url(/assets/images/bg1.jpg)" }}>
-      <main
-        className="flex-1 flex items-center justify-center py-4 lg:h-screen lg:py-0"
-      >
+    <div
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat lg:block lg:relative"
+      style={{ backgroundImage: "url(/assets/images/bg1.jpg)" }}
+    >
+      <main className="flex-1 flex items-center justify-center py-4 lg:h-screen lg:py-0">
         <div className="w-4/5 h-auto lg:h-4/5 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl mx-2 md:mx-20 flex">
+          {/* Image Section - Hidden on small screens */}
+          <div className="hidden lg:flex w-1/2 h-full p-8 items-center justify-center">
+            <div className="w-full h-full rounded-2xl flex items-center justify-center overflow-hidden">
+              <img
+                src="/assets/images/reg-bg.png"
+                alt="Registration"
+                className="w-full h-full object-contain rounded-2xl"
+              />
+            </div>
+          </div>
+
           {/* Input Section */}
           <div className="w-full lg:w-1/2 flex flex-col h-full relative">
             <div
@@ -21,17 +33,6 @@ const RegistrationForm = () => {
               }}
             >
               <Inputs />
-            </div>
-          </div>
-
-          {/* Image Section - Hidden on small screens */}
-          <div className="hidden lg:flex w-1/2 h-full p-8 items-center justify-center">
-            <div className="w-full h-full rounded-2xl flex items-center justify-center overflow-hidden">
-              <img
-                src="/assets/images/reg-bg.png"
-                alt="Registration"
-                className="w-full h-full object-contain rounded-2xl"
-              />
             </div>
           </div>
         </div>

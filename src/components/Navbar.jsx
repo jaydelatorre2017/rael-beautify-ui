@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const navItems = [
     {
-      name: 'Join the Program',
+      name: 'Join the Event',
       path: '/',
     },
     {

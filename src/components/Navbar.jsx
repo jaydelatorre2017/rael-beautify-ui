@@ -32,7 +32,7 @@ const Navbar = () => {
                 alt="Logo" 
                 className="w-8 h-8 rounded-full bg-white p-1 object-contain"
               />
-              <span className="text-white font-bold text-lg hidden sm:block">
+              <span className="text-white font-bold text-lg block">
                 RAEL
               </span>
               <span className="text-white/70 text-sm hidden md:block">

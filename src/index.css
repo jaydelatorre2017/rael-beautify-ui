@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-custom: 'UnifrakturMaguntia', 'cursive';
+  --font-custom-secondary: 'Crimson Text', 'serif';
+}
 
 
 .hide {
@@ -14,4 +21,101 @@
 
 .flex-center {
   @apply flex items-center justify-center min-h-screen px-8 md:px-15
+}
+
+/* ID Card specific styles for consistent rendering */
+.id-card-container {
+  /* Ensure the card maintains its aspect ratio */
+  aspect-ratio: 350 / 520;
+  max-width: 350px;
+  position: relative;
+}
+
+.id-card-container img {
+  /* Prevent image stretching and ensure proper loading */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Ensure images maintain their aspect ratio */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific styles for profile images */
+.id-card-container img[alt="Profile"] {
+  /* Force object-fit behavior for profile images */
+  object-fit: cover !important;
+  object-position: center center !important;
+  width: 100% !important;
+  height: 100% !important;
+  /* Prevent any browser-specific stretching */
+  image-rendering: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Optimize canvas rendering on mobile devices */
+@media (max-width: 768px) {
+  .id-card-container {
+    /* Slightly smaller on mobile to prevent memory issues */
+    max-width: 320px;
+  }
+  
+  /* Ensure smooth rendering on mobile */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Footer specific styles */
+.footer-glassmorphism {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(49, 46, 129, 0.9); /* indigo-900 with opacity */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure consistent footer positioning */
+.page-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+}
+
+/* Navbar specific styles */
+.navbar-glassmorphism {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(49, 46, 129, 0.9); /* indigo-900 with opacity */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Registration form layout fixes */
+@media (min-width: 1024px) {
+  .registration-container {
+    height: 80vh;
+    max-height: 80vh;
+  }
+  
+  .registration-image-section {
+    flex: 0 0 50%;
+    max-height: 100%;
+  }
+  
+  .registration-form-section {
+    flex: 0 0 50%;
+    height: 100%;
+    max-height: 100%;
+  }
+  
+  .registration-form-scroll {
+    height: calc(100% - 2rem);
+    max-height: calc(100% - 2rem);
+  }
 }

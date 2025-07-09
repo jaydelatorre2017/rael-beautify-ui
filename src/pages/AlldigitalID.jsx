@@ -3,6 +3,8 @@ import html2canvas from "html2canvas";
 import { PDFDocument } from "pdf-lib";
 import IDCard from "./IDCard";
 import { Skeleton } from "@mui/material";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AlldigitalID = () => {
   const [filtered, setFiltered] = useState([]);
@@ -53,7 +55,7 @@ const AlldigitalID = () => {
           const data = await res.json();
           setFiltered(Array.isArray(data) ? data : []);
           setIndex(0);
-        } catch (err) {
+        } catch {
           setTimedOut(true);
         } finally {
           setLoading(false);
@@ -157,11 +159,11 @@ const AlldigitalID = () => {
   }
 
   return (
-    <div
-      className="flex flex-col md:flex-row w-full items-center p-4 md:h-full md:justify-center pt-10 md:pt-0 bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/images/bg1.jpg')" }}
-    >
-      <div className="flex flex-col md:flex-row w-full max-w-6xl mt-0 md:mt-3 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl p-6">
+    <>
+      <Navbar />
+      <div className="min-h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: "url('/assets/images/bg1.jpg')" }}>
+        <main className="flex-1 flex flex-col md:flex-row w-full items-center p-4 justify-center pt-20">
+          <div className="flex flex-col md:flex-row w-full max-w-6xl mt-0 md:mt-3 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl p-6">
         {/* Illustration */}
         <div className="hidden md:flex md:w-1/2 flex-col items-center justify-center h-[700px] relative">
           <img
@@ -261,7 +263,10 @@ const AlldigitalID = () => {
           )}
         </div>
       </div>
-    </div>
+      </main>
+      <Footer />
+      </div>
+    </>
   );
 };
 

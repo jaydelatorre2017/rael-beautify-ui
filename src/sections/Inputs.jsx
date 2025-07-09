@@ -142,7 +142,7 @@ const Inputs = () => {
 
   return (
     <div className="px-6">
-      <h1 className="text-2xl font-black text-blue-500 mb-2">Fill out form below!</h1>
+      <h1 className="text-2xl font-black text-white mb-2">Fill out form below!</h1>
       <form onSubmit={handleSubmit}>
         <div className="pb-6 max-w-full">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-12">

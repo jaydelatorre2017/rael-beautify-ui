@@ -221,15 +221,15 @@ const Inputs = () => {
             />
 
             {/* Nota Bene */}
-            {/* <div className="col-span-12">
-              <p className="inline text-md/6 font-bold text-gray-900">
+            <div className="col-span-12">
+              <p className="inline text-md/6 font-bold text-white">
                 Nota bene:{" "}
               </p>
-              <p className="inline text-sm italic text-gray-500">
+              <p className="inline text-sm italic text-gray-300">
                 All collected information shall be treated in accordance with
                 the Data Privacy Law
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
 

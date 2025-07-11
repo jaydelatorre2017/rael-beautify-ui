@@ -144,7 +144,7 @@ const ParticipantIDGeneratorSingle = () => {
 
   return (
     <div
-      className="flex flex-col md:flex-row w-full items-center p-4 md:h-full md:justify-center pt-10 md:pt-0 bg-cover bg-center"
+      className="flex flex-col md:flex-row w-full items-center p-4 md:h-screen md:justify-center pt-10 md:pt-0 bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/images/bg1.jpg')" }}
     >
       <div className="flex flex-col md:flex-row w-full max-w-6xl mt-0 md:mt-3 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl p-6">

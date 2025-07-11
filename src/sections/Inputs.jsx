@@ -60,7 +60,7 @@ const Inputs = () => {
     imgPreview,
 
     // Event
-    // activeEvent,
+    activeEvent,
 
     // Handlers
     handlePhoneNumberChange,
@@ -90,7 +90,9 @@ const Inputs = () => {
       borderRadius: "0.375rem",
       backgroundColor: "rgba(255, 255, 255, 0.2)",
       backdropFilter: "blur(4px)",
-      borderColor: state.isFocused ? "rgba(255, 255, 255, 0.6)" : "rgba(255, 255, 255, 0.3)",
+      borderColor: state.isFocused
+        ? "rgba(255, 255, 255, 0.6)"
+        : "rgba(255, 255, 255, 0.3)",
       color: "white",
       "&:hover": {
         borderColor: "rgba(255, 255, 255, 0.5)",
@@ -115,7 +117,10 @@ const Inputs = () => {
         : state.isFocused
         ? "rgba(255, 255, 255, 0.85)"
         : "rgba(255, 255, 255, 0.75)",
-      color: state.isSelected || state.isFocused ? "rgba(0, 0, 0, 0.95)" : "rgba(0, 0, 0, 0.9)",
+      color:
+        state.isSelected || state.isFocused
+          ? "rgba(0, 0, 0, 0.95)"
+          : "rgba(0, 0, 0, 0.9)",
       backdropFilter: "blur(20px)",
       "&:hover": {
         backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -140,9 +145,27 @@ const Inputs = () => {
     }),
   };
 
+  const event_name = activeEvent?.description || "";
+  const event_date = activeEvent?.start_date
+    ? new Date(activeEvent.start_date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
+
   return (
     <div className="px-6">
-      <h1 className="text-2xl font-black text-white mb-2">Fill out form below!</h1>
+      <h1 className="text-xl md:text-2xl font-black text-white">
+        {event_name}
+      </h1>
+      <h2 className="text-xl font-bold text-white">
+        <span className="font-black">Event Date: </span>
+        {event_date}
+      </h2>
+      <h3 className="text-xl font-black text-white mb-2">
+        Fill out form below!
+      </h3>
       <form onSubmit={handleSubmit}>
         <div className="pb-6 max-w-full">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-12">

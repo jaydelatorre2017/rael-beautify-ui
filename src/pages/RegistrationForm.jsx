@@ -15,7 +15,7 @@ const RegistrationForm = () => {
         <div className="registration-container w-full max-w-7xl h-auto lg:h-[80vh] rounded-3xl backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl mx-4 flex flex-col lg:flex-row">
           {/* Image Section - Hidden on small screens */}
           <div className="registration-image-section hidden lg:flex lg:w-1/2 p-6 items-center justify-center">
-            <div className="w-full h-full max-h-full rounded-2xl flex items-center justify-center overflow-hidden">
+            <div className="w-full h-full max-h-full rounded-2xl flex items-center justify-center overflow-hidden bg-white">
               <img
                 src="/assets/images/RightLogo.png"
                 alt="Registration"

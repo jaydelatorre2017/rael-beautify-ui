@@ -153,6 +153,13 @@ const Inputs = () => {
         day: "numeric",
       })
     : "";
+  const end_date = activeEvent?.event_date
+    ? new Date(activeEvent.start_date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
 
   return (
     <div className="px-6">
@@ -162,6 +169,10 @@ const Inputs = () => {
       <h2 className="text-xl font-bold text-white">
         <span className="font-black">Event Date: </span>
         {event_date}
+      </h2>
+      <h2 className="text-xl font-bold text-white">
+        <span className="font-black">End Date: </span>
+        {end_date}
       </h2>
       <h3 className="text-xl font-black text-white mb-2">
         Fill out form below!

@@ -146,20 +146,38 @@ const Inputs = () => {
   };
 
   const event_name = activeEvent?.description || "";
-  const event_date = activeEvent?.start_date
-    ? new Date(activeEvent.start_date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "";
-  const end_date = activeEvent?.end_date
-    ? new Date(activeEvent.end_date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "";
+  let eventDateRange = "";
+
+if (activeEvent?.start_date && activeEvent?.end_date) {
+  const startDate = new Date(activeEvent.start_date);
+  const endDate = new Date(activeEvent.end_date);
+
+  const sameMonth = startDate.getMonth() === endDate.getMonth();
+  const sameYear = startDate.getFullYear() === endDate.getFullYear();
+
+  if (sameMonth && sameYear) {
+    const monthName = startDate.toLocaleDateString("en-US", { month: "long" });
+    eventDateRange = `${monthName} ${startDate.getDate()}-${endDate.getDate()}, ${startDate.getFullYear()}`;
+  } else {
+    const formattedStart = startDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    const formattedEnd = endDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    eventDateRange = `${formattedStart} - ${formattedEnd}`;
+  }
+} else if (activeEvent?.start_date) {
+  eventDateRange = new Date(activeEvent.start_date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
   return (
     <div className="px-6">
@@ -168,11 +186,7 @@ const Inputs = () => {
       </h1>
       <h2 className="text-xl font-bold text-white">
         <span className="font-black">Event Date: </span>
-        {event_date}
-      </h2>
-      <h2 className="text-xl font-bold text-white">
-        <span className="font-black">End Date: </span>
-        {end_date}
+        {eventDateRange}
       </h2>
       <h3 className="text-xl font-black text-white mb-2">
         Fill out form below!

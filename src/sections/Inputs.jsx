@@ -153,8 +153,8 @@ const Inputs = () => {
         day: "numeric",
       })
     : "";
-  const end_date = activeEvent?.event_date
-    ? new Date(activeEvent.start_date).toLocaleDateString("en-US", {
+  const end_date = activeEvent?.end_date
+    ? new Date(activeEvent.end_date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",

@@ -23,7 +23,7 @@ const Footer = () => {
                 className="w-6 h-6 object-contain"
               />
               <span className="text-white/80 text-xs hidden sm:block">
-                Regional Assembly of Educational Leaders
+                Regional Assembly of Education Leaders
               </span>
             </div>
           </div>

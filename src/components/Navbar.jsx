@@ -36,7 +36,7 @@ const Navbar = () => {
                 RAEL
               </span>
               <span className="text-white/70 text-sm hidden md:block">
-                Regional Assembly of Educational Leaders
+                Regional Assembly of Education Leaders
               </span>
             </div>
           </div>

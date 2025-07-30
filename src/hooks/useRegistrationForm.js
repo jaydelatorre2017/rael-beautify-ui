@@ -418,7 +418,7 @@ export const useRegistrationForm = () => {
     phoneNumber, setPhoneNumber,
     email, setEmail,
     error, isDirty,
-    tshirtSize,setTshirtSize,//added by  hai
+  
     selectedPosition, setSelectedPosition,
     selectedParticipantType, setSelectedParticipantType,
     typeSelected, setTypeSelected,

@@ -22,7 +22,7 @@ export const useRegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isDirty, setIsDirty] = useState(false);
-  const [tshirtSize, setTshirtSize] = useState("");//tshirt size --hai
+
 
   // Position and Type State
   const [selectedPosition, setSelectedPosition] = useState(null);

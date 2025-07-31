@@ -20,8 +20,11 @@ const PositionForm = ({
     { value: "School Principal IV", label: "School Principal IV" },
     { value: "EPS", label: "EPS" },
     { value: "PSDS", label: "PSDS" },
+     { value: "Chief", label: "Chief" },
     { value: "ASDS", label: "ASDS" },
     { value: "SDS", label: "SDS" },
+    { value: "ARD", label: "ARD" },
+    { value: "RD", label: "RD" },
   ];
 
   const participant_type = [

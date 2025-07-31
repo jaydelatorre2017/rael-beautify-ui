@@ -30,7 +30,7 @@ const Design = () => {
         <p className="text-white font-light text-md/6">
           Welcome to the official RAEL 2025 Online Registration Form. This form
           is intended for participants registering for the Regional Assembly of
-          Educational Leaders (RAEL). Kindly ensure that all information
+          Education Leaders (RAEL). Kindly ensure that all information
           provided is accurate and complete, as it will be used solely for event
           coordination and official updates. We are excited to have you join
           this inspiring and empowering event. 

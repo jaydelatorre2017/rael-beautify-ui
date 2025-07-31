@@ -31,6 +31,7 @@ const PositionForm = ({
     { value: "Participant", label: "Participant" },
     { value: "Training Technical Team", label: "Training Technical Team" },
     { value: "Facilitator/Coordinator", label: "Facilitator/Coordinator" },
+     { value: "Management Team", label: "Management Team" },
   ];
 
   return (
